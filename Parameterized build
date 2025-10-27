@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(
+            name: 'environment',
+            description: 'Run Flyway database migration using latest master branch from prices in what environment?',
+            choices: ['PRE', 'PRO']
+        )
+    }
+
+    stages {
+        stage('Wat') {
+            steps {
+                echo "selectedEnvironment: ${params.environment}"
+            }
+        }
+    }
+}
